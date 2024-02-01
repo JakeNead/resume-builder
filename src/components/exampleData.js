@@ -10,9 +10,20 @@ export const example = {
       location: "Jungleville, Earth",
       date: "January 2018 - Present",
       responsibilities: [
-        "Conduct field research on various animal species.",
-        "Collaborate with local communities for conservation efforts.",
-        "Publish research findings in reputable scientific journals.",
+        {
+          key: crypto.randomUUID(),
+          responsibility: "Conduct field research on various animal species.",
+        },
+        {
+          key: crypto.randomUUID(),
+          responsibility:
+            "Collaborate with local communities for conservation efforts.",
+        },
+        {
+          key: crypto.randomUUID(),
+          responsibility:
+            "Publish research findings in reputable scientific journals.",
+        },
       ],
     },
     {
@@ -21,9 +32,19 @@ export const example = {
       location: "Savannah City, Earth",
       date: "June 2015 - December 2017",
       responsibilities: [
-        "Monitor and analyze animal behavior in their natural habitat.",
-        "Develop and implement conservation programs.",
-        "Train and mentor junior zoologists.",
+        {
+          key: crypto.randomUUID(),
+          responsibility:
+            "Monitor and analyze animal behavior in their natural habitat.",
+        },
+        {
+          key: crypto.randomUUID(),
+          responsibility: "Develop and implement conservation programs.",
+        },
+        {
+          key: crypto.randomUUID(),
+          responsibility: "Train and mentor junior zoologists.",
+        },
       ],
     },
   ],
