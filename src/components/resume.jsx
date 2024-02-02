@@ -1,18 +1,23 @@
 import { useState } from "react";
 import Input from "./input";
-import { example } from "./exampleData";
+import { exampleResume } from "./exampleData";
+import DisplayResume from "./displayResume";
 
 export default function Resume() {
-  const { resume, setResume } = useState({ example });
+  const [resume, setResume] = useState(exampleResume);
 
   function handleChange(e) {
-    const property = e.classname;
-    setResume({ ...resume, property: e.target.value });
+    console.log([e.target.id]);
+    const property = [e.target.id];
+    setResume({ ...resume, [e.target.id]: e.target.value });
   }
   return (
     <>
-      <Input name="name" onChange={handleChange} />
-      <p>{resume.name}</p>
+      <Input name="Name" input={resume.name} onChange={handleChange} />
+      <Input name="Phone" input={resume.phone} onChange={handleChange} />
+      <Input name="Email" input={resume.email} onChange={handleChange} />
+      <Input name="LinkedIn" input={resume.linkediN} onChange={handleChange} />
+      <DisplayResume currentInfo={resume} />
     </>
   );
 }

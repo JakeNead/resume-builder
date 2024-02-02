@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer>Made by Jake</footer>;
+  return <footer>Made by me</footer>;
 }

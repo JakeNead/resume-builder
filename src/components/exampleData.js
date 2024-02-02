@@ -1,8 +1,8 @@
-export const example = {
+export const exampleResume = {
   name: "Dr. Serena Wildwood",
   phone: "(555) 123-4567",
   email: "serena.wildwood@example.com",
-  linkedIn: "linkedin.com/in/serenawildwood",
+  linkedIn: "www.linkedin.com/in/serenawildwood",
   workExperience: [
     {
       company: "Wildlife Explorations Inc.",
