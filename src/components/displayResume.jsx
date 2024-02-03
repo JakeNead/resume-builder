@@ -1,12 +1,14 @@
 export default function DisplayResume({ currentInfo }) {
   return (
-    <>
-      <h1>{currentInfo.name}</h1>
-      <p>{currentInfo.phone}</p>
-      <p>{currentInfo.email}</p>
-      <a href={currentInfo.LinkedIn}>
-        <p>Linkedin</p>
-      </a>
-    </>
+    <div className="displayResume">
+      <h1>{currentInfo.Name}</h1>
+      <div className="displayContactInfo">
+        <p>{currentInfo.Phone}</p>
+        <p>{currentInfo.Email}</p>
+        <a href={currentInfo.LinkedIn}>
+          <p>Linkedin</p>
+        </a>
+      </div>
+    </div>
   );
 }

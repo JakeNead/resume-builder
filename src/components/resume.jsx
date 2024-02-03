@@ -1,23 +1,41 @@
 import { useState } from "react";
-import Input from "./input";
 import { exampleResume } from "./exampleData";
 import DisplayResume from "./displayResume";
+import ContactInfo from "./ContactInfo";
 
 export default function Resume() {
   const [resume, setResume] = useState(exampleResume);
+  const [expand, setExpand] = useState({
+    contactInfo: true,
+    professionalHistory: false,
+    education: false,
+    skills: false,
+  });
 
   function handleChange(e) {
-    console.log([e.target.id]);
-    const property = [e.target.id];
     setResume({ ...resume, [e.target.id]: e.target.value });
   }
+
+  function handleExpand(section) {
+    setExpand({ ...expand, [section]: !expand.section });
+  }
+
   return (
-    <>
-      <Input name="Name" input={resume.name} onChange={handleChange} />
-      <Input name="Phone" input={resume.phone} onChange={handleChange} />
-      <Input name="Email" input={resume.email} onChange={handleChange} />
-      <Input name="LinkedIn" input={resume.linkediN} onChange={handleChange} />
+    <main>
+      <div className="inputSection">
+        <h2
+          onClick={() =>
+            setExpand({ ...expand, ["contactInfo"]: !expand.contactInfo })
+          }
+        >
+          Contact Information
+        </h2>
+        {expand.contactInfo && (
+          <ContactInfo resume={resume} handleChange={handleChange} />
+        )}
+      </div>
+
       <DisplayResume currentInfo={resume} />
-    </>
+    </main>
   );
 }
