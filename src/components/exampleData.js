@@ -1,7 +1,7 @@
 export const exampleResume = {
   Name: "Dr. Serena Wildwood",
   Phone: "(555) 123-4567",
-  Email: "serena.wildwood@example.com",
+  Email: "s.wildwood@example.com",
   LinkedIn: "www.linkedin.com/in/serenawildwood",
   "Work-Experience": [
     {

@@ -85,17 +85,23 @@ main {
   padding: 2rem;
 }
 
-.contactInfo {
+h1 {
+  text-align: center;
+}
+
+.contactInput {
   display: flex;
   flex-direction: column;
 }
 
 .displayContactInfo {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-around;
+}
+.displayContactInfo > * {
 }
 
 h2 {
   border: 2px solid black;
+  padding: 1rem;
 }
