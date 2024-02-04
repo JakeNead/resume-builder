@@ -6,11 +6,11 @@ export default function ContactInfo({
   resume,
 }) {
   return (
-    <>
-      <h2 className="contactInfoSection" onClick={handleExpand}>
+    <div className="contactInfoSection">
+      <h2 className="contact" onClick={handleExpand}>
         Contact Information
       </h2>
-      {expand.contactInfoSection && (
+      {expand.contact && (
         <div className="contactInput">
           <Input name="Name" input={resume.Name} onChange={handleChange} />
           <Input name="Phone" input={resume.Phone} onChange={handleChange} />
@@ -22,6 +22,6 @@ export default function ContactInfo({
           />
         </div>
       )}
-    </>
+    </div>
   );
 }

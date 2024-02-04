@@ -5,64 +5,64 @@ export const exampleResume = {
   LinkedIn: "www.linkedin.com/in/serenawildwood",
   "Work-Experience": [
     {
-      company: "Wildlife Explorations Inc.",
-      position: "Senior Zoologist",
-      location: "Jungleville, Earth",
-      date: "January 2018 - Present",
-      responsibilities: [
+      Company: "Wildlife Explorations Inc.",
+      Position: "Senior Zoologist",
+      Location: "Jungleville, Earth",
+      Date: "January 2018 - Present",
+      Responsibilities: [
         {
-          key: crypto.randomUUID(),
-          responsibility: "Conduct field research on various animal species.",
+          Key: crypto.randomUUID(),
+          Responsibility: "Conduct field research on various animal species.",
         },
         {
-          key: crypto.randomUUID(),
-          responsibility:
+          Key: crypto.randomUUID(),
+          Responsibility:
             "Collaborate with local communities for conservation efforts.",
         },
         {
-          key: crypto.randomUUID(),
-          responsibility:
+          Key: crypto.randomUUID(),
+          Responsibility:
             "Publish research findings in reputable scientific journals.",
         },
       ],
     },
     {
-      company: "Safari Guardians",
-      position: "Wildlife Biologist",
-      location: "Savannah City, Earth",
-      date: "June 2015 - December 2017",
-      responsibilities: [
+      Company: "Safari Guardians",
+      Position: "Wildlife Biologist",
+      Location: "Savannah City, Earth",
+      Date: "June 2015 - December 2017",
+      Responsibilities: [
         {
-          key: crypto.randomUUID(),
-          responsibility:
+          Key: crypto.randomUUID(),
+          Responsibility:
             "Monitor and analyze animal behavior in their natural habitat.",
         },
         {
-          key: crypto.randomUUID(),
-          responsibility: "Develop and implement conservation programs.",
+          Key: crypto.randomUUID(),
+          Responsibility: "Develop and implement conservation programs.",
         },
         {
-          key: crypto.randomUUID(),
-          responsibility: "Train and mentor junior zoologists.",
+          Key: crypto.randomUUID(),
+          Responsibility: "Train and mentor junior zoologists.",
         },
       ],
     },
   ],
-  education: [
+  Education: [
     {
-      school: "University of Zoological Studies",
-      degree: "Ph.D. in Zoology",
-      location: "Scienceville, Earth",
-      date: "Graduated May 2015",
+      School: "University of Zoological Studies",
+      Degree: "Ph.D. in Zoology",
+      Location: "Scienceville, Earth",
+      Date: "Graduated May 2015",
     },
     {
-      school: "Wildlife Conservation Institute",
-      degree: "Bachelor of Science in Biology",
-      location: "Naturetown, Earth",
-      date: "Graduated May 2011",
+      School: "Wildlife Conservation Institute",
+      Degree: "Bachelor of Science in Biology",
+      Location: "Naturetown, Earth",
+      Date: "Graduated May 2011",
     },
   ],
-  skills: [
+  Skills: [
     "Field Research",
     "Conservation Biology",
     "Wildlife Monitoring",

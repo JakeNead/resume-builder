@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { exampleResume } from "./exampleData";
 import DisplayResume from "./displayResume";
-import ContactInfo from "./ContactInfo";
+import ContactInfo from "./contactInfo";
+import Experience from "./experience";
 
 export default function Resume() {
   const [resume, setResume] = useState(exampleResume);
   const [expand, setExpand] = useState({
-    contactInfoSection: true,
-    professionalHistory: false,
+    contact: true,
+    experience: false,
     education: false,
     skills: false,
   });
@@ -17,7 +18,6 @@ export default function Resume() {
   }
 
   function handleExpand(e) {
-    // const expandName = e.target.className;
     setExpand({ ...expand, [e.target.className]: !expand[e.target.className] });
   }
 
@@ -30,13 +30,14 @@ export default function Resume() {
           handleExpand={handleExpand}
           expand={expand}
         />
+        <Experience
+          resume={resume}
+          handleChange={handleChange}
+          handleExpand={handleExpand}
+          expand={expand}
+        />
       </div>
       <DisplayResume currentInfo={resume} />
     </main>
   );
 }
-
-// Try using the handleExpand callback instead of  setState
-
-// () =>
-//             setExpand({ ...expand, ["contactInfo"]: !expand.contactInfo })
