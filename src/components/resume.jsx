@@ -17,27 +17,35 @@ export default function Resume() {
     setResume({ ...resume, [e.target.id]: e.target.value });
   }
 
+  function handleExperienceChange(e) {
+    // setResume({ ...resume, [e.target.className]: !expand[e.target.className] });
+    //
+    //find a way to connect each input with the resume state
+    //
+    console.log(e.target);
+  }
+
   function handleExpand(e) {
     setExpand({ ...expand, [e.target.className]: !expand[e.target.className] });
   }
 
   return (
     <main>
-      <div className="inputSection">
+      <div className="resumeInputSection">
         <ContactInfo
           resume={resume}
+          expand={expand}
           handleChange={handleChange}
           handleExpand={handleExpand}
-          expand={expand}
         />
         <Experience
           resume={resume}
-          handleChange={handleChange}
-          handleExpand={handleExpand}
           expand={expand}
+          handleChange={handleExperienceChange}
+          handleExpand={handleExpand}
         />
       </div>
-      <DisplayResume currentInfo={resume} />
+      <DisplayResume resume={resume} />
     </main>
   );
 }
