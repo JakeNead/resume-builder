@@ -18,12 +18,14 @@ export default function Resume() {
   }
 
   function handleExperienceChange(e) {
-    // console.log(resume["Work-Experience"][e.target.dataset.index][e.target.id]);
-    setResume({
+    const newResume = {
       ...resume,
-      [resume["Work-Experience"][e.target.dataset.index][e.target.id]]:
-        e.target.value,
-    });
+      ["Work-Experience"]: [...resume["Work-Experience"]],
+    };
+    newResume["Work-Experience"][e.target.dataset.index][e.target.id] =
+      e.target.value;
+
+    setResume(newResume);
   }
 
   function handleAddExperience() {
