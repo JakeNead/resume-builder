@@ -1,3 +1,7 @@
 export default function Header() {
-  return <header>Resume Builder Header</header>;
+  return (
+    <header>
+      <h1>Resume Builder Header</h1>
+    </header>
+  );
 }

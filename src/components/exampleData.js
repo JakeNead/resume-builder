@@ -5,6 +5,7 @@ export const exampleResume = {
   LinkedIn: "www.linkedin.com/in/serenawildwood",
   "Work-Experience": [
     {
+      Key: crypto.randomUUID(),
       Company: "Wildlife Explorations Inc.",
       Position: "Senior Zoologist",
       Location: "Jungleville, Earth",
@@ -27,6 +28,7 @@ export const exampleResume = {
       ],
     },
     {
+      Key: crypto.randomUUID(),
       Company: "Safari Guardians",
       Position: "Wildlife Biologist",
       Location: "Savannah City, Earth",

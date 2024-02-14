@@ -1,4 +1,4 @@
-import Input from "./input";
+import { Input } from "./inputs";
 export default function ContactInfo({
   handleChange,
   handleExpand,
@@ -6,7 +6,7 @@ export default function ContactInfo({
   resume,
 }) {
   return (
-    <div className="contactInfoSection">
+    <div className="contactInfoSection inputSection">
       <h2 className="contact" onClick={handleExpand}>
         Contact Information
       </h2>

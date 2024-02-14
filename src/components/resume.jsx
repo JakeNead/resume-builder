@@ -18,11 +18,29 @@ export default function Resume() {
   }
 
   function handleExperienceChange(e) {
-    // setResume({ ...resume, [e.target.className]: !expand[e.target.className] });
-    //
-    //find a way to connect each input with the resume state
-    //
-    console.log(e.target);
+    // console.log(resume["Work-Experience"][e.target.dataset.index][e.target.id]);
+    setResume({
+      ...resume,
+      [resume["Work-Experience"][e.target.dataset.index][e.target.id]]:
+        e.target.value,
+    });
+  }
+
+  function handleAddExperience() {
+    const newWorkExperience = resume["Work-Experience"].push({
+      Key: crypto.randomUUID(),
+      Company: "",
+      Position: "",
+      Location: "",
+      Date: "",
+      Responsibilities: [
+        {
+          Key: crypto.randomUUID(),
+          Responsibility: "",
+        },
+      ],
+    });
+    setResume({ ...resume, [resume["Work-Experience"]]: newWorkExperience });
   }
 
   function handleExpand(e) {
@@ -35,14 +53,15 @@ export default function Resume() {
         <ContactInfo
           resume={resume}
           expand={expand}
-          handleChange={handleChange}
           handleExpand={handleExpand}
+          handleChange={handleChange}
         />
         <Experience
           resume={resume}
           expand={expand}
-          handleChange={handleExperienceChange}
           handleExpand={handleExpand}
+          handleExperienceChange={handleExperienceChange}
+          handleAddExperience={handleAddExperience}
         />
       </div>
       <DisplayResume resume={resume} />
