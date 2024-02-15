@@ -6,6 +6,7 @@ export default function Experience({
   expand,
   handleExpand,
   handleExperienceChange,
+  handleResponsibilityChange,
 }) {
   return (
     <div className="experienceSection inputSection">
@@ -17,6 +18,7 @@ export default function Experience({
           <ExperienceInputs
             resume={resume}
             handleExperienceChange={handleExperienceChange}
+            handleResponsibilityChange={handleResponsibilityChange}
           />
           <AddExperienceButton />
         </>
@@ -25,7 +27,11 @@ export default function Experience({
   );
 }
 
-export function ExperienceInputs({ resume, handleExperienceChange }) {
+export function ExperienceInputs({
+  resume,
+  handleExperienceChange,
+  handleResponsibilityChange,
+}) {
   return resume["Work-Experience"].map((experience, index) => {
     return (
       <div className="experienceInput" key={experience.Key}>
@@ -54,14 +60,18 @@ export function ExperienceInputs({ resume, handleExperienceChange }) {
           index={index}
         />
         <p>Responsibilities</p>
-        {/* {experience.Responsibilities.map((responsibility) => (
-          <TextArea
-            key={responsibility.Key}
-            name="Responsibility"
-            input={responsibility.Responsibility}
-            onChange={handleChange}
-          />
-        ))} */}
+        {experience.Responsibilities.map(
+          (responsibility, responsibilityIndex) => (
+            <TextArea
+              key={responsibility.Key}
+              name="Responsibility"
+              input={responsibility.Responsibility}
+              onChange={handleResponsibilityChange}
+              index={index}
+              responsibilityIndex={responsibilityIndex}
+            />
+          )
+        )}
       </div>
     );
   });

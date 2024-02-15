@@ -15,12 +15,14 @@ function Input({ name, input, onChange, index }) {
   );
 }
 
-function TextArea({ name, input, onChange }) {
+function TextArea({ name, input, onChange, index, responsibilityIndex }) {
   return (
     <>
       <label htmlFor={name}></label>
       <textarea
         // key={key}
+        data-index={index}
+        data-responsibility-index={responsibilityIndex}
         id={name}
         value={input}
         onChange={onChange}

@@ -28,6 +28,18 @@ export default function Resume() {
     setResume(newResume);
   }
 
+  function handleResponsibilityChange(e) {
+    const newResume = {
+      ...resume,
+      ["Work-Experience"]: [...resume["Work-Experience"]],
+    };
+    newResume["Work-Experience"][e.target.dataset.index]["Responsibilities"][
+      e.target.dataset.responsibilityIndex
+    ]["Responsibility"] = e.target.value;
+
+    setResume(newResume);
+  }
+
   function handleAddExperience() {
     const newWorkExperience = resume["Work-Experience"].push({
       Key: crypto.randomUUID(),
@@ -63,6 +75,7 @@ export default function Resume() {
           expand={expand}
           handleExpand={handleExpand}
           handleExperienceChange={handleExperienceChange}
+          handleResponsibilityChange={handleResponsibilityChange}
           handleAddExperience={handleAddExperience}
         />
       </div>
