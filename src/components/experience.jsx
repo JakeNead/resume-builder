@@ -7,6 +7,7 @@ export default function Experience({
   handleExpand,
   handleExperienceChange,
   handleResponsibilityChange,
+  handleResponsibilityDelete,
 }) {
   return (
     <div className="experienceSection inputSection">
@@ -19,6 +20,7 @@ export default function Experience({
             resume={resume}
             handleExperienceChange={handleExperienceChange}
             handleResponsibilityChange={handleResponsibilityChange}
+            handleResponsibilityDelete={handleResponsibilityDelete}
           />
           <AddExperienceButton />
         </>
@@ -31,6 +33,7 @@ export function ExperienceInputs({
   resume,
   handleExperienceChange,
   handleResponsibilityChange,
+  handleResponsibilityDelete,
 }) {
   return resume["Work-Experience"].map((experience, index) => {
     return (
@@ -72,6 +75,11 @@ export function ExperienceInputs({
             />
           )
         )}
+        <DeleteResponsibilityButton
+          resume={resume}
+          index={index}
+          deleteResponsibility={handleResponsibilityDelete}
+        />
       </div>
     );
   });
@@ -103,7 +111,21 @@ function AddResponsibilityButton(responsibilities) {
   }
 }
 
-function DeleteResponsibilityButton() {}
+function DeleteResponsibilityButton({ resume, index, deleteResponsibility }) {
+  if (resume["Work-Experience"][index]["Responsibilities"].length > 1) {
+    return (
+      <button type="button" data-index={index} onClick={deleteResponsibility}>
+        Delete Responsibility (min:1)
+      </button>
+    );
+  } else {
+    return (
+      <button type="button" disabled>
+        Delete Responsibility (min:1)
+      </button>
+    );
+  }
+}
 
 function AddExperienceButton() {
   return <button type="button">Add Experience (max:3)</button>;
