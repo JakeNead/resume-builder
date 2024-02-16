@@ -5,9 +5,10 @@ export default function Experience({
   resume,
   expand,
   handleExpand,
-  handleExperienceChange,
+  handleChangeExperience,
   handleResponsibilityChange,
-  handleResponsibilityDelete,
+  handleAddResponsibility,
+  handleDeleteResponsibility,
 }) {
   return (
     <div className="experienceSection inputSection">
@@ -18,9 +19,10 @@ export default function Experience({
         <>
           <ExperienceInputs
             resume={resume}
-            handleExperienceChange={handleExperienceChange}
+            handleChangeExperience={handleChangeExperience}
             handleResponsibilityChange={handleResponsibilityChange}
-            handleResponsibilityDelete={handleResponsibilityDelete}
+            handleAddResponsibility={handleAddResponsibility}
+            handleDeleteResponsibility={handleDeleteResponsibility}
           />
           <AddExperienceButton />
         </>
@@ -31,9 +33,10 @@ export default function Experience({
 
 export function ExperienceInputs({
   resume,
-  handleExperienceChange,
+  handleChangeExperience,
   handleResponsibilityChange,
-  handleResponsibilityDelete,
+  handleAddResponsibility,
+  handleDeleteResponsibility,
 }) {
   return resume["Work-Experience"].map((experience, index) => {
     return (
@@ -41,25 +44,25 @@ export function ExperienceInputs({
         <Input
           name="Company"
           input={experience.Company}
-          onChange={handleExperienceChange}
+          onChange={handleChangeExperience}
           index={index}
         />
         <Input
           name="Position"
           input={experience.Position}
-          onChange={handleExperienceChange}
+          onChange={handleChangeExperience}
           index={index}
         />
         <Input
           name="Location"
           input={experience.Location}
-          onChange={handleExperienceChange}
+          onChange={handleChangeExperience}
           index={index}
         />
         <Input
           name="Date"
           input={experience.Date}
-          onChange={handleExperienceChange}
+          onChange={handleChangeExperience}
           index={index}
         />
         <p>Responsibilities</p>
@@ -75,10 +78,15 @@ export function ExperienceInputs({
             />
           )
         )}
+        <AddResponsibilityButton
+          resume={resume}
+          index={index}
+          addResponsibility={handleAddResponsibility}
+        />
         <DeleteResponsibilityButton
           resume={resume}
           index={index}
-          deleteResponsibility={handleResponsibilityDelete}
+          deleteResponsibility={handleDeleteResponsibility}
         />
       </div>
     );
@@ -95,11 +103,11 @@ export function ExperienceInputs({
 //  <DeleteExperienceButton />
 
 //work on the add/delete buttons after I make the form responsive
-function AddResponsibilityButton(responsibilities) {
-  if (responsibilities.length <= 3) {
+function AddResponsibilityButton({ resume, index, addResponsibility }) {
+  if (resume["Work-Experience"][index]["Responsibilities"].length < 3) {
     return (
-      <button type="button" onClick={AddResponsibility}>
-        Add Responsibility (max:3)
+      <button type="button" data-index={index} onClick={addResponsibility}>
+        Add Responsibility
       </button>
     );
   } else {
@@ -115,7 +123,7 @@ function DeleteResponsibilityButton({ resume, index, deleteResponsibility }) {
   if (resume["Work-Experience"][index]["Responsibilities"].length > 1) {
     return (
       <button type="button" data-index={index} onClick={deleteResponsibility}>
-        Delete Responsibility (min:1)
+        Delete Responsibility
       </button>
     );
   } else {
@@ -131,8 +139,3 @@ function AddExperienceButton() {
   return <button type="button">Add Experience (max:3)</button>;
 }
 function DeleteExperienceButton() {}
-
-function handleAddExperience() {}
-function handleDeleteExperience() {}
-function handleAddResponsibility() {}
-function handleDeleteResponsibility() {}

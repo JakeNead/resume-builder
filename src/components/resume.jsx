@@ -17,7 +17,7 @@ export default function Resume() {
     setResume({ ...resume, [e.target.id]: e.target.value });
   }
 
-  function handleExperienceChange(e) {
+  function handleChangeExperience(e) {
     const newResume = {
       ...resume,
       ["Work-Experience"]: [...resume["Work-Experience"]],
@@ -40,7 +40,21 @@ export default function Resume() {
     setResume(newResume);
   }
 
-  function handleResponsibilityDelete(e) {
+  function handleAddResponsibility(e) {
+    const newResume = {
+      ...resume,
+      ["Work-Experience"]: [...resume["Work-Experience"]],
+    };
+    newResume["Work-Experience"][e.target.dataset.index][
+      "Responsibilities"
+    ].push({
+      Key: crypto.randomUUID(),
+      Responsibility: " ",
+    });
+    setResume(newResume);
+  }
+
+  function handleDeleteResponsibility(e) {
     const newResume = {
       ...resume,
       ["Work-Experience"]: [...resume["Work-Experience"]],
@@ -85,9 +99,10 @@ export default function Resume() {
           resume={resume}
           expand={expand}
           handleExpand={handleExpand}
-          handleExperienceChange={handleExperienceChange}
+          handleChangeExperience={handleChangeExperience}
           handleResponsibilityChange={handleResponsibilityChange}
-          handleResponsibilityDelete={handleResponsibilityDelete}
+          handleDeleteResponsibility={handleDeleteResponsibility}
+          handleAddResponsibility={handleAddResponsibility}
           handleAddExperience={handleAddExperience}
         />
       </div>
