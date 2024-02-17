@@ -9,6 +9,7 @@ export default function Experience({
   handleResponsibilityChange,
   handleAddResponsibility,
   handleDeleteResponsibility,
+  handleAddExperience,
 }) {
   return (
     <div className="experienceSection inputSection">
@@ -24,7 +25,10 @@ export default function Experience({
             handleAddResponsibility={handleAddResponsibility}
             handleDeleteResponsibility={handleDeleteResponsibility}
           />
-          <AddExperienceButton />
+          <AddExperienceButton
+            resume={resume}
+            handleAddExperience={handleAddExperience}
+          />
         </>
       )}
     </div>
@@ -135,7 +139,19 @@ function DeleteResponsibilityButton({ resume, index, deleteResponsibility }) {
   }
 }
 
-function AddExperienceButton() {
-  return <button type="button">Add Experience (max:3)</button>;
+function AddExperienceButton({ resume, handleAddExperience }) {
+  if (resume["Work-Experience"].length < 3) {
+    return (
+      <button type="button" onClick={handleAddExperience}>
+        Add Experience{" "}
+      </button>
+    );
+  } else {
+    return (
+      <button type="button" disabled>
+        Add Experience (max:3)
+      </button>
+    );
+  }
 }
 function DeleteExperienceButton() {}

@@ -13,6 +13,10 @@ export default function Resume() {
     skills: false,
   });
 
+  function handleExpand(e) {
+    setExpand({ ...expand, [e.target.className]: !expand[e.target.className] });
+  }
+
   function handleChange(e) {
     setResume({ ...resume, [e.target.id]: e.target.value });
   }
@@ -65,8 +69,8 @@ export default function Resume() {
     setResume(newResume);
   }
 
-  function handleAddExperience() {
-    const newWorkExperience = resume["Work-Experience"].push({
+  function handleAddExperience(e) {
+    const newWorkExperience = {
       Key: crypto.randomUUID(),
       Company: "",
       Position: "",
@@ -78,12 +82,10 @@ export default function Resume() {
           Responsibility: "",
         },
       ],
-    });
-    setResume({ ...resume, [resume["Work-Experience"]]: newWorkExperience });
-  }
-
-  function handleExpand(e) {
-    setExpand({ ...expand, [e.target.className]: !expand[e.target.className] });
+    };
+    const newResume = { ...resume };
+    newResume["Work-Experience"].push(newWorkExperience);
+    setResume({ ...resume });
   }
 
   return (
@@ -101,8 +103,8 @@ export default function Resume() {
           handleExpand={handleExpand}
           handleChangeExperience={handleChangeExperience}
           handleResponsibilityChange={handleResponsibilityChange}
-          handleDeleteResponsibility={handleDeleteResponsibility}
           handleAddResponsibility={handleAddResponsibility}
+          handleDeleteResponsibility={handleDeleteResponsibility}
           handleAddExperience={handleAddExperience}
         />
       </div>
