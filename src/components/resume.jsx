@@ -69,7 +69,7 @@ export default function Resume() {
     setResume(newResume);
   }
 
-  function handleAddExperience(e) {
+  function handleAddExperience() {
     const newWorkExperience = {
       Key: crypto.randomUUID(),
       Company: "",
@@ -85,6 +85,12 @@ export default function Resume() {
     };
     const newResume = { ...resume };
     newResume["Work-Experience"].push(newWorkExperience);
+    setResume({ ...resume });
+  }
+
+  function handleDeleteExperience() {
+    const newResume = { ...resume };
+    newResume["Work-Experience"].pop();
     setResume({ ...resume });
   }
 
@@ -106,6 +112,7 @@ export default function Resume() {
           handleAddResponsibility={handleAddResponsibility}
           handleDeleteResponsibility={handleDeleteResponsibility}
           handleAddExperience={handleAddExperience}
+          handleDeleteExperience={handleDeleteExperience}
         />
       </div>
       <DisplayResume resume={resume} />
