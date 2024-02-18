@@ -4,6 +4,7 @@ import DisplayResume from "./displayResume";
 import ContactInfo from "./contactInfo";
 import Experience from "./experience";
 import Education from "./education";
+import Skills from "./skills";
 
 export default function Resume() {
   const [resume, setResume] = useState(exampleResume);
@@ -124,6 +125,24 @@ export default function Resume() {
     setResume(newResume);
   }
 
+  function handleChangeSkills(e) {
+    const newResume = { ...resume, Skills: [...resume.Skills] };
+    newResume.Skills[e.target.dataset.index].skill = e.target.value;
+    setResume(newResume);
+  }
+  function handleAddSkills() {
+    const newResume = { ...resume };
+    newResume.Skills.push({
+      key: crypto.randomUUID(),
+      skill: "",
+    });
+    setResume(newResume);
+  }
+  function handleDeleteSkills() {
+    const newResume = { ...resume };
+    newResume.Skills.pop();
+    setResume(newResume);
+  }
   return (
     <main>
       <div className="resumeInputSection">
@@ -151,6 +170,14 @@ export default function Resume() {
           handleChangeEducation={handleChangeEducation}
           handleAddEducation={handleAddEducation}
           handleDeleteEducation={handleDeleteEducation}
+        />
+        <Skills
+          resume={resume}
+          expand={expand}
+          handleExpand={handleExpand}
+          handleChangeSkills={handleChangeSkills}
+          handleAddSkills={handleAddSkills}
+          handleDeleteSkills={handleDeleteSkills}
         />
       </div>
       <DisplayResume resume={resume} />
