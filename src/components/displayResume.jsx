@@ -11,33 +11,59 @@ export default function DisplayResume({ resume }) {
           <p>Linkedin</p>
         </a>
       </div>
-      <h2>Work Experience</h2>
-      {resume["Work-Experience"].map((experience) => {
-        return (
-          <>
-            <div key={experience.Key}>
-              <div className="jobDetailsContainer">
-                <div className="displayCompanyAndPosition">
-                  <p className="displayCompany">{experience.Company}</p>
-                  <p className="displayPosition">{experience.Position}</p>
+      <section className="experienceSection">
+        <h2>Work Experience</h2>
+        {resume["Work-Experience"].map((experience) => {
+          return (
+            <>
+              <div key={experience.Key}>
+                <div className="jobDetailsContainer">
+                  <div className="displayCompanyAndPosition">
+                    <p className="displayCompany">{experience.Company}</p>
+                    <p className="displayPosition">{experience.Position}</p>
+                  </div>
+                  <div className="displayLocationAndDate">
+                    <p className="displayLocation">{experience.Location}</p>
+                    <p className="displayDate">{experience.Date}</p>
+                  </div>
+                </div>
+              </div>
+              <ul>
+                {experience.Responsibilities.map((responsibility) => {
+                  return (
+                    <li key={responsibility.Key}>
+                      {responsibility.Responsibility}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          );
+        })}
+      </section>
+
+      <div className="educationSection">
+        <h2>Education</h2>
+        {resume.Education.map((school) => {
+          return (
+            <div key={school.Key}>
+              <div className="schoolDetailsContainer">
+                <div className="displaySchoolAndDegree">
+                  <p className="displaySchool">{school.School}</p>
+                  <p className="displayDegeee">{school.Degree}</p>
                 </div>
                 <div className="displayLocationAndDate">
-                  <p className="displayCompany">{experience.Location}</p>
-                  <p className="displayPosition">{experience.Date}</p>
+                  <p className="displayLocation">{school.Location}</p>
+                  <p className="displayDate">{school.Date}</p>
                 </div>
               </div>
             </div>
-            <ul>
-              {experience.Responsibilities.map((responsibility) => {
-                return (
-                  <li key={responsibility.Key}>
-                    {responsibility.Responsibility}
-                  </li>
-                );
-              })}
-            </ul>
-          </>
-        );
+          );
+        })}
+      </div>
+      <h2 className="skillsSection">Skills</h2>
+      {resume.Skills.map((skill) => {
+        return <span>{skill.skill}</span>;
       })}
     </div>
   );

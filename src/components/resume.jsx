@@ -3,6 +3,7 @@ import { exampleResume } from "./exampleData";
 import DisplayResume from "./displayResume";
 import ContactInfo from "./contactInfo";
 import Experience from "./experience";
+import Education from "./education";
 
 export default function Resume() {
   const [resume, setResume] = useState(exampleResume);
@@ -91,7 +92,36 @@ export default function Resume() {
   function handleDeleteExperience() {
     const newResume = { ...resume };
     newResume["Work-Experience"].pop();
-    setResume({ ...resume });
+    setResume({ ...newResume });
+  }
+
+  function handleChangeEducation(e) {
+    const newResume = {
+      ...resume,
+      Education: [...resume.Education],
+    };
+    newResume.Education[e.target.dataset.index][e.target.id] = e.target.value;
+
+    setResume(newResume);
+  }
+
+  function handleAddEducation() {
+    const newSchool = {
+      Key: crypto.randomUUID(),
+      School: "",
+      Degree: "",
+      Location: "",
+      Date: "",
+    };
+    const newResume = { ...resume };
+    newResume.Education.push(newSchool);
+    setResume(newResume);
+  }
+
+  function handleDeleteEducation() {
+    const newResume = { ...resume };
+    newResume.Education.pop();
+    setResume(newResume);
   }
 
   return (
@@ -113,6 +143,14 @@ export default function Resume() {
           handleDeleteResponsibility={handleDeleteResponsibility}
           handleAddExperience={handleAddExperience}
           handleDeleteExperience={handleDeleteExperience}
+        />
+        <Education
+          resume={resume}
+          expand={expand}
+          handleExpand={handleExpand}
+          handleChangeEducation={handleChangeEducation}
+          handleAddEducation={handleAddEducation}
+          handleDeleteEducation={handleDeleteEducation}
         />
       </div>
       <DisplayResume resume={resume} />

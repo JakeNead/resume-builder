@@ -52,12 +52,14 @@ export const exampleResume = {
   ],
   Education: [
     {
+      Key: crypto.randomUUID(),
       School: "University of Zoological Studies",
       Degree: "Ph.D. in Zoology",
       Location: "Scienceville, Earth",
       Date: "Graduated May 2015",
     },
     {
+      Key: crypto.randomUUID(),
       School: "Wildlife Conservation Institute",
       Degree: "Bachelor of Science in Biology",
       Location: "Naturetown, Earth",
@@ -65,10 +67,21 @@ export const exampleResume = {
     },
   ],
   Skills: [
-    "Field Research",
-    "Conservation Biology",
-    "Wildlife Monitoring",
-    "Data Analysis",
-    "Scientific Writing",
+    {
+      key: crypto.randomUUID(),
+      skill: "Field Research",
+    },
+    {
+      key: crypto.randomUUID(),
+      skill: "Conservation Biology",
+    },
+    {
+      key: crypto.randomUUID(),
+      skill: "Data Analysis",
+    },
+    {
+      key: crypto.randomUUID(),
+      skill: "Scientific Writing",
+    },
   ],
 };
