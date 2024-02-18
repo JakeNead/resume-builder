@@ -47,10 +47,21 @@ export function ExperienceInputs({
   handleAddResponsibility,
   handleDeleteResponsibility,
 }) {
+  const fields = ["Company", "Position", "Location", "Date"];
   return resume["Work-Experience"].map((experience, index) => {
     return (
       <div className="experienceInput" key={experience.Key}>
-        <Input
+        {fields.map((field) => {
+          return (
+            <Input
+              name={field}
+              input={experience[field]}
+              onChange={handleChangeExperience}
+              index={index}
+            />
+          );
+        })}
+        {/* <Input
           name="Company"
           input={experience.Company}
           onChange={handleChangeExperience}
@@ -73,7 +84,7 @@ export function ExperienceInputs({
           input={experience.Date}
           onChange={handleChangeExperience}
           index={index}
-        />
+        /> */}
         <p>Responsibilities</p>
         {experience.Responsibilities.map(
           (responsibility, responsibilityIndex) => (
@@ -101,17 +112,7 @@ export function ExperienceInputs({
     );
   });
 }
-// OUTLINE
-// resume["Work-Experience"].map(experiences =>
-//    <ExperienceInputs
-//        .map(Experiences Responsibilities)
-//        <AddResponsibilityButton />
-//        <DeleteResponsibilityButton />
-//  )
-//  <AddExperienceButton />
-//  <DeleteExperienceButton />
 
-//work on the add/delete buttons after I make the form responsive
 function AddResponsibilityButton({ resume, index, addResponsibility }) {
   if (resume["Work-Experience"][index]["Responsibilities"].length < 3) {
     return (
