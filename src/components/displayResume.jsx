@@ -41,7 +41,6 @@ export default function DisplayResume({ resume }) {
           );
         })}
       </section>
-
       <div className="educationSection">
         <h2>Education</h2>
         {resume.Education.map((school) => {
@@ -60,9 +59,9 @@ export default function DisplayResume({ resume }) {
             </div>
           );
         })}
-      </div>
+      </div>{" "}
+      <h2>Skills</h2>
       <div className="skillsContainer">
-        <h2>Skills</h2>
         {resume.Skills.map((skill) => {
           return <span>{skill.skill}</span>;
         })}

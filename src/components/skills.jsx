@@ -20,11 +20,13 @@ export default function Skills({
             resume={resume}
             handleChangeSkills={handleChangeSkills}
           />
-          <AddSkillButton resume={resume} handleAddSkills={handleAddSkills} />
-          <DeleteSkillButton
-            resume={resume}
-            handleDeleteSkills={handleDeleteSkills}
-          />
+          <div className="skillsButtons">
+            <AddSkillButton resume={resume} handleAddSkills={handleAddSkills} />
+            <DeleteSkillButton
+              resume={resume}
+              handleDeleteSkills={handleDeleteSkills}
+            />
+          </div>
         </>
       )}
     </div>

@@ -26,14 +26,16 @@ export default function Experience({
             handleAddResponsibility={handleAddResponsibility}
             handleDeleteResponsibility={handleDeleteResponsibility}
           />
-          <AddExperienceButton
-            resume={resume}
-            handleAddExperience={handleAddExperience}
-          />
-          <DeleteExperienceButton
-            resume={resume}
-            handleDeleteExperience={handleDeleteExperience}
-          />
+          <div className="experienceButtons">
+            <AddExperienceButton
+              resume={resume}
+              handleAddExperience={handleAddExperience}
+            />
+            <DeleteExperienceButton
+              resume={resume}
+              handleDeleteExperience={handleDeleteExperience}
+            />
+          </div>
         </>
       )}
     </div>
@@ -61,30 +63,6 @@ export function ExperienceInputs({
             />
           );
         })}
-        {/* <Input
-          name="Company"
-          input={experience.Company}
-          onChange={handleChangeExperience}
-          index={index}
-        />
-        <Input
-          name="Position"
-          input={experience.Position}
-          onChange={handleChangeExperience}
-          index={index}
-        />
-        <Input
-          name="Location"
-          input={experience.Location}
-          onChange={handleChangeExperience}
-          index={index}
-        />
-        <Input
-          name="Date"
-          input={experience.Date}
-          onChange={handleChangeExperience}
-          index={index}
-        /> */}
         <p>Responsibilities</p>
         {experience.Responsibilities.map(
           (responsibility, responsibilityIndex) => (

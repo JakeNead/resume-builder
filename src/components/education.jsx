@@ -20,14 +20,16 @@ export default function Education({
             resume={resume}
             handleChangeEducation={handleChangeEducation}
           />
-          <AddEducationButton
-            resume={resume}
-            handleAddEducation={handleAddEducation}
-          />
-          <DeleteEducationButton
-            resume={resume}
-            handleDeleteEducation={handleDeleteEducation}
-          />
+          <div className="educationButtons">
+            <AddEducationButton
+              resume={resume}
+              handleAddEducation={handleAddEducation}
+            />
+            <DeleteEducationButton
+              resume={resume}
+              handleDeleteEducation={handleDeleteEducation}
+            />
+          </div>
         </>
       )}
     </div>
