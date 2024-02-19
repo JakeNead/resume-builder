@@ -61,10 +61,12 @@ export default function DisplayResume({ resume }) {
           );
         })}
       </div>
-      <h2 className="skillsSection">Skills</h2>
-      {resume.Skills.map((skill) => {
-        return <span>{skill.skill}</span>;
-      })}
+      <div className="skillsContainer">
+        <h2>Skills</h2>
+        {resume.Skills.map((skill) => {
+          return <span>{skill.skill}</span>;
+        })}
+      </div>
     </div>
   );
 }
