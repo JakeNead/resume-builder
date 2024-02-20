@@ -1,14 +1,18 @@
 export { Input, SkillInput, TextArea };
 
-function Input({ name, input, onChange, index }) {
+function Input({ name, input, onChange, index, skillInput }) {
+  let value = "";
+  if (!skillInput) {
+    value = name + ": ";
+  }
   return (
     <>
-      <label htmlFor={name}>{name + ": "}</label>
+      <label htmlFor={name}>{value}</label>
       <input
         data-index={index}
         id={name}
         type="text"
-        value={input}
+        placeholder={input}
         onChange={onChange}
       />
     </>

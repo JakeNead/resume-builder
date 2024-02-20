@@ -1,63 +1,35 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-button {
-  /* border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s; */
-}
-button:hover {
-  /* border-color: #646cff; */
-}
-button:focus,
-button:focus-visible {
-  /* outline: 4px auto -webkit-focus-ring-color; */
+input,
+button,
+textarea {
+  font: inherit;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    /* color: #747bff; */
-  }
-  button {
-    /* background-color: #f9f9f9; */
-  }
-}
-
-/* ----------------------- */
+/* -------reset above------- */
 :root {
   --card-color: hsl(0, 0%, 16%);
+  --input-color: hsl(0, 0%, 20%);
   --background-color: hsl(0, 0%, 12%);
+  --font-color: hsl(0, 0%, 100%);
+  --accent-color: hsl(30, 91%, 57%);
+  --btn-font-color: hsl(0, 0%, 0%);
+  --disabled-btn-bg-color: hsl(30, 61%, 40%);
+  --disabled-btn-font-color: hsl(0, 0%, 5%);
 }
-
 #root {
   min-height: 100vh;
   width: 100vw;
@@ -65,50 +37,77 @@ button:focus-visible {
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--background-color);
+  color: var(--font-color);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
 }
-
 header,
 footer {
   text-align: center;
   padding: 2rem;
   background-color: var(--card-color);
 }
-
 main {
-  display: grid;
-  grid-template: 1fr/1fr 1fr;
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  margin: 0.5em 0 0;
+  background-color: var(--accent-color);
+  color: var(--btn-font-color);
+}
+button:active {
+  transform: scale(0.99);
+}
+button:disabled {
+  background-color: var(--disabled-btn-bg-color);
+  color: var(--btn-font-color);
+}
 .resumeInputSection,
 .displayResume {
   display: flex;
   flex-direction: column;
   padding: 2rem;
 }
-
-.displayResume {
-  background-color: var(--card-color);
-  margin: 2rem;
-  border-radius: 5px;
-}
-
 .resumeInputSection {
   gap: 1rem;
+  width: 100%;
+  max-width: 500px;
 }
-
 .inputSection {
   background-color: var(--card-color);
   border-radius: 5px;
   padding: 1rem;
+  gap: 1em;
 }
-
 .contactInput,
-.experienceInput {
+.experienceInput,
+.educationInput,
+.skillsInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+}
+.experienceButtons,
+.educationButtons,
+.skillsButtons {
   display: flex;
   flex-direction: column;
 }
-
+input,
+textarea {
+  margin-bottom: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+input::placeholder {
+  color: var(--font-color);
+}
 .displayContactInfo {
   display: flex;
   justify-content: space-around;
@@ -117,20 +116,41 @@ main {
   display: flex;
   justify-content: space-between;
 }
-
-input {
+input,
+textarea {
   padding: 5px;
+  background-color: var(--input-color);
+  color: var(--font-color);
 }
-
 h1 {
-  margin: 0px;
-  padding: 0px;
   text-align: center;
 }
-h2 {
-  margin: 0px;
+header h1 {
+  color: var(--accent-color);
 }
-
+h2 {
+}
 textarea {
   resize: vertical;
+}
+
+/* ---------Display Resume Styling--------- */
+
+.displayResume {
+  background-color: var(--card-color);
+  margin: 2rem;
+  border-radius: 5px;
+}
+.displayContactInfo {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.jobDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.schoolDetailsContainer {
+  display: flex;
+  justify-content: space-between;
 }
