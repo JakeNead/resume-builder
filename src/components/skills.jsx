@@ -68,7 +68,7 @@ function AddSkillButton({ resume, handleAddSkills }) {
 }
 
 function DeleteSkillButton({ resume, handleDeleteSkills }) {
-  if (resume.Skills.length > 1) {
+  if (resume.Skills.length > 3) {
     return (
       <button type="button" onClick={handleDeleteSkills}>
         Delete Skill
@@ -77,7 +77,7 @@ function DeleteSkillButton({ resume, handleDeleteSkills }) {
   } else {
     return (
       <button type="button" disabled>
-        Delte Skill min:3
+        Delete Skill min:3
       </button>
     );
   }
