@@ -1,4 +1,4 @@
-import { Input, SkillInput } from "./inputs";
+import { Input } from "./inputs";
 
 export default function Skills({
   resume,
@@ -38,11 +38,12 @@ function SkillsInputs({ resume, handleChangeSkills }) {
     <div className="skillsInput">
       {resume.Skills.map((skillItem, index) => {
         return (
-          <SkillInput
+          <Input
             name={"Skill"}
             input={skillItem.skill}
             index={index}
             onChange={handleChangeSkills}
+            skillInput={true}
           />
         );
       })}
