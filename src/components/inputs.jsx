@@ -1,9 +1,24 @@
-export { Input, TextArea };
+export { Input, SkillInput, TextArea };
 
 function Input({ name, input, onChange, index }) {
   return (
     <>
       <label htmlFor={name}>{name + ": "}</label>
+      <input
+        data-index={index}
+        id={name}
+        type="text"
+        value={input}
+        onChange={onChange}
+      />
+    </>
+  );
+}
+
+function SkillInput({ name, input, onChange, index }) {
+  return (
+    <>
+      <label htmlFor={name}></label>
       <input
         data-index={index}
         id={name}
