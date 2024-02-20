@@ -45,16 +45,14 @@ export default function DisplayResume({ resume }) {
         <h2>Education</h2>
         {resume.Education.map((school) => {
           return (
-            <div key={school.Key}>
-              <div className="schoolDetailsContainer">
-                <div className="displaySchoolAndDegree">
-                  <p className="displaySchool">{school.School}</p>
-                  <p className="displayDegeee">{school.Degree}</p>
-                </div>
-                <div className="displayLocationAndDate">
-                  <p className="displayLocation">{school.Location}</p>
-                  <p className="displayDate">{school.Date}</p>
-                </div>
+            <div key={school.Key} className="schoolDetailsContainer">
+              <div className="displaySchoolAndDegree">
+                <p className="displaySchool">{school.School}</p>
+                <p className="displayDegeee">{school.Degree}</p>
+              </div>
+              <div className="displayLocationAndDate">
+                <p className="displayLocation">{school.Location}</p>
+                <p className="displayDate">{school.Date}</p>
               </div>
             </div>
           );
