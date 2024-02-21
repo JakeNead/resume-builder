@@ -47,7 +47,7 @@ export default function DisplayResume({ resume }) {
             <div key={school.Key} className="schoolDetailsContainer">
               <div className="displaySchoolAndDegree">
                 <p className="displaySchool">{school.School}</p>
-                <p className="displayDegeee">{school.Degree}</p>
+                <p className="displayDegree">{school.Degree}</p>
               </div>
               <div className="displayLocationAndDate">
                 <p className="displayLocation">{school.Location}</p>
