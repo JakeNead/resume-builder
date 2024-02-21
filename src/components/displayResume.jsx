@@ -16,18 +16,17 @@ export default function DisplayResume({ resume }) {
         {resume["Work-Experience"].map((experience) => {
           return (
             <>
-              <div key={experience.Key}>
-                <div className="jobDetailsContainer">
-                  <div className="displayCompanyAndPosition">
-                    <p className="displayCompany">{experience.Company}</p>
-                    <p className="displayPosition">{experience.Position}</p>
-                  </div>
-                  <div className="displayLocationAndDate">
-                    <p className="displayLocation">{experience.Location}</p>
-                    <p className="displayDate">{experience.Date}</p>
-                  </div>
+              <div key={experience.Key} className="jobDetailsContainer">
+                <div className="displayCompanyAndPosition">
+                  <p className="displayCompany">{experience.Company}</p>
+                  <p className="displayPosition">{experience.Position}</p>
+                </div>
+                <div className="displayLocationAndDate">
+                  <p className="displayLocation">{experience.Location}</p>
+                  <p className="displayDate">{experience.Date}</p>
                 </div>
               </div>
+
               <ul>
                 {experience.Responsibilities.map((responsibility) => {
                   return (
