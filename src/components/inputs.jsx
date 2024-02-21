@@ -12,7 +12,7 @@ function Input({ name, input, onChange, index, skillInput }) {
         data-index={index}
         id={name}
         type="text"
-        placeholder={input}
+        value={input}
         onChange={onChange}
       />
     </>
