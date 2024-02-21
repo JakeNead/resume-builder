@@ -13,9 +13,10 @@ export default function DisplayResume({ resume }) {
       </div>
       <section className="experienceSection">
         <h2>Work Experience</h2>
+
         {resume["Work-Experience"].map((experience) => {
           return (
-            <>
+            <div className="displayExperience">
               <div key={experience.Key} className="jobDetailsContainer">
                 <div className="displayCompanyAndPosition">
                   <p className="displayCompany">{experience.Company}</p>
@@ -36,7 +37,7 @@ export default function DisplayResume({ resume }) {
                   );
                 })}
               </ul>
-            </>
+            </div>
           );
         })}
       </section>
