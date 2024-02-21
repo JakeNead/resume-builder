@@ -35,7 +35,7 @@ textarea {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: stretch;
   background-color: var(--background-color);
   color: var(--font-color);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -72,7 +72,7 @@ button:disabled {
 .displayResume {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2em;
 }
 .resumeInputSection {
   gap: 1rem;
@@ -122,6 +122,10 @@ textarea {
   background-color: var(--input-color);
   color: var(--font-color);
 }
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--accent-color);
+}
 h1 {
   text-align: center;
 }
@@ -138,13 +142,26 @@ textarea {
 
 .displayResume {
   background-color: var(--card-color);
-  margin: 2rem;
   border-radius: 5px;
+  margin: 1rem 0.5rem;
+  max-width: 274px;
+  max-height: 386px;
+  font-size: 0.44rem;
 }
 .displayContactInfo {
   display: flex;
   justify-content: center;
   gap: 1em;
+}
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+.displayResume h2 {
+  position: relative;
+}
+.displayExperience {
+  margin-bottom: 0.8em;
 }
 .jobDetailsContainer {
   display: flex;
@@ -153,4 +170,81 @@ textarea {
 .schoolDetailsContainer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.8em;
+}
+.displayPosition,
+.displayDate,
+.displayDegree {
+  font-style: italic;
+}
+.skillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+.skillsContainer span {
+  background-color: var(--input-color);
+  padding: 0.2em 0.4em;
+  white-space: nowrap;
+  border-radius: 100px;
+}
+.displayResume h2 {
+  margin-bottom: 0.5em;
+}
+.displayResume h2::before {
+  position: absolute;
+  bottom: 0px;
+  content: "";
+  width: 100%;
+  border-bottom: 1px solid var(--font-color);
+}
+/* ---------Media Queries--------- */
+@media (min-width: 320px) {
+  .displayResume {
+    margin: 1rem 0.5rem;
+    max-width: 274px;
+    max-height: 386px;
+    font-size: 0.44rem;
+  }
+}
+@media (min-width: 380px) {
+  .displayResume {
+    max-width: 364px;
+    max-height: 513x;
+    font-size: 0.59rem;
+  }
+}
+@media (min-width: 500px) {
+  .displayResume {
+    max-width: 484px;
+    max-height: 682x;
+    font-size: 0.79rem;
+  }
+}
+@media (min-width: 800px) {
+  main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    flex-grow: 1;
+  }
+  .resumeInputSection {
+    flex-basis: 375px;
+    flex-grow: 0;
+  }
+  .displayResume {
+    margin: 2rem 2rem auto 0;
+    flex-grow: 5;
+    max-width: 473px;
+    max-height: 666px;
+    font-size: 0.77rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .displayResume {
+    max-width: 610px;
+    max-height: 860px;
+    font-size: 1rem;
+  }
 }
