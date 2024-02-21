@@ -5,6 +5,7 @@
 }
 * {
   margin: 0;
+  transition: var(--transition);
 }
 
 body {
@@ -20,7 +21,19 @@ textarea {
 }
 
 /* -------reset above------- */
-:root {
+body {
+  --card-color: hsl(235, 0%, 97%);
+  --input-color: hsl(235, 0%, 90%);
+  --background-color: hsl(235, 12%, 93%);
+  --font-color: hsl(235, 0%, 3%);
+  --accent-color: rgb(72, 75, 106);
+  --btn-font-color: hsl(235, 22%, 98%);
+  --disabled-btn-bg-color: hsl(235, 10%, 50%);
+  --disabled-btn-font-color: hsl(0, 0%, 5%);
+  --transition: all 0.5s ease-in-out;
+}
+
+body.darkTheme {
   --card-color: hsl(0, 0%, 16%);
   --input-color: hsl(0, 0%, 20%);
   --background-color: hsl(0, 0%, 12%);
@@ -29,17 +42,44 @@ textarea {
   --btn-font-color: hsl(0, 0%, 0%);
   --disabled-btn-bg-color: hsl(30, 61%, 40%);
   --disabled-btn-font-color: hsl(0, 0%, 5%);
+  --transition: all 0.5s ease-in-out;
 }
+
+.sun,
+.moon {
+  transition: 0.5s ease-in-out;
+}
+.sun > * {
+  fill: var(--font-color);
+  stroke: var(--font-color);
+}
+.moon > * {
+  fill: var(--font-color);
+  stroke: var(--font-color);
+}
+.sun.hide {
+  transform: translateX(3rem);
+}
+.moon.hide {
+  transform: translateY(-3rem);
+}
+
+resume h1 {
+  color: var(--accent-color);
+}
+
 #root {
   min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
+  justify-content: space-between;
   background-color: var(--background-color);
   color: var(--font-color);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  overflow: hidden;
+  transition: var(--transition);
 }
 header,
 footer {
@@ -47,10 +87,23 @@ footer {
   padding: 2rem;
   background-color: var(--card-color);
 }
+header {
+  position: relative;
+}
+.toggleTheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 2rem;
+  width: 2rem;
+  fill: var(--font-color);
+}
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
+  /* flex-grow: 1; */
 }
 button {
   border-radius: 5px;
@@ -67,6 +120,9 @@ button:active {
 button:disabled {
   background-color: var(--disabled-btn-bg-color);
   color: var(--btn-font-color);
+}
+header h1 {
+  color: var(--font-color);
 }
 .resumeInputSection,
 .displayResume {
@@ -105,9 +161,7 @@ textarea {
   border: 1px solid transparent;
   border-radius: 3px;
 }
-input::placeholder {
-  color: var(--font-color);
-}
+
 .displayContactInfo {
   display: flex;
   justify-content: space-around;
@@ -129,11 +183,7 @@ textarea:focus {
 h1 {
   text-align: center;
 }
-header h1 {
-  color: var(--accent-color);
-}
-h2 {
-}
+
 textarea {
   resize: vertical;
 }
@@ -160,6 +210,7 @@ a {
 .displayResume h2 {
   position: relative;
 }
+
 .displayExperience {
   margin-bottom: 0.8em;
 }
@@ -246,5 +297,21 @@ a {
     max-width: 610px;
     max-height: 860px;
     font-size: 1rem;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-color: hsl(0, 0%, 16%);
+    --input-color: hsl(0, 0%, 20%);
+    --background-color: hsl(0, 0%, 12%);
+    --font-color: hsl(0, 0%, 100%);
+    --accent-color: hsl(30, 91%, 57%);
+    --btn-font-color: hsl(0, 0%, 0%);
+    --disabled-btn-bg-color: hsl(30, 61%, 40%);
+    --disabled-btn-font-color: hsl(0, 0%, 5%);
+    --transition: all 0.5s ease-in-out;
+  }
+  resume h1 {
+    color: var(--accent-color);
   }
 }
