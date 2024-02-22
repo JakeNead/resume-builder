@@ -12,7 +12,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 input,
@@ -81,6 +81,7 @@ footer {
   padding: 2rem;
   background-color: var(--card-color);
   transition: var(--transition);
+  overflow: hidden;
 }
 header {
   position: relative;
@@ -193,8 +194,8 @@ span {
   background-color: var(--card-color);
   border-radius: 5px;
   margin: 1rem 0.5rem;
-  max-width: 274px;
-  max-height: 386px;
+  width: 274px;
+  height: 386px;
   font-size: 0.44rem;
 }
 .displayContactInfo {
@@ -266,8 +267,8 @@ a {
 }
 @media (min-width: 500px) {
   .displayResume {
-    max-width: 484px;
-    max-height: 682x;
+    width: 484px;
+    height: 682x;
     font-size: 0.79rem;
   }
 }
@@ -283,10 +284,9 @@ a {
     flex-grow: 0;
   }
   .displayResume {
-    margin: 2rem 2rem auto 0;
-    flex-grow: 5;
-    max-width: 473px;
-    max-height: 666px;
+    margin: 2rem 2rem 1rem 0;
+    width: 473px;
+    height: 666px;
     font-size: 0.77rem;
   }
 }
@@ -294,7 +294,7 @@ a {
 @media (min-width: 1000px) {
   .displayResume {
     max-width: 610px;
-    max-height: 860px;
+    height: 860px;
     font-size: 1rem;
   }
 }
